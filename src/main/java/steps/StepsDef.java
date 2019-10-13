@@ -6,14 +6,19 @@ import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import models.Post;
 import org.testng.Assert;
+import service.CommentService;
 import service.PostService;
 import service.UserService;
 
 public class StepsDef {
     PostService postServ;
     UserService userServ;
+    CommentService commentServ;
     Response res;
     Response resUser;
+    Response resCmnt;
+
+
     @Given("^User hits endpoint to get posts$")
     public void userHitsEndpointToGetAllPosts() {
         postServ = new PostService();
@@ -85,5 +90,10 @@ public class StepsDef {
         Assert.assertEquals(resUser.statusCode(),200);
         System.out.println(resUser.getBody().asString());
 
+    }
+
+    @Given("User hits endpoint to get comments")
+    public void userHitsEndpointToGetComments() {
+        commentServ = new CommentService();
     }
 }

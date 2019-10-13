@@ -5,17 +5,9 @@ public class Comment {
     private int postId;
     private int commentId;
     private String nameofUser;
+    private String emailofUser;
+    private String commentBody;
 
-    @Override
-    public String toString() {
-        return "Comment{" +
-                "postId=" + postId +
-                ", commentId=" + commentId +
-                ", nameofUser='" + nameofUser + '\'' +
-                ", emailofUser='" + emailofUser + '\'' +
-                ", commentBody='" + commentBody + '\'' +
-                '}';
-    }
 
     public Comment(int postId, int commentId, String nameofUser, String emailofUser, String commentBody) {
         this.postId = postId;
@@ -25,8 +17,6 @@ public class Comment {
         this.commentBody = commentBody;
     }
 
-    private String emailofUser;
-    private String commentBody;
 
     public int getPostId() {
         return postId;
@@ -66,5 +56,16 @@ public class Comment {
 
     public void setCommentBody(String commentBody) {
         this.commentBody = commentBody;
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "postId=" + postId +
+                ", commentId=" + commentId +
+                ", nameofUser='" + nameofUser + '\'' +
+                ", emailofUser='" + emailofUser + '\'' +
+                ", commentBody='" + commentBody + '\'' +
+                '}';
     }
 }
