@@ -22,6 +22,10 @@ public class PostService {
         return httpReq.request(Method.GET,"/posts/"+id+"");
 
     }
+    public Response queryAPostQueryParam(String id){
+        return httpReq.request(Method.GET,"/posts?userId="+id+"");
+
+    }
 
     public Response makeAPost(Post p){
 

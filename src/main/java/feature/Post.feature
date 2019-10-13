@@ -20,7 +20,7 @@ Feature: Test all the feature associated with POST
   Scenario: Validate that the user is able to search all post submitted by a user
     Given User hits endpoint to get posts
     When User searches for all post submitted by user with userID 7
-    Then Validate that all the posts submitted by the user is displayed
+    Then Validate that all the posts submitted by the user 7 is displayed
 
   Scenario: Validate that a user is able to EDIT a post
 

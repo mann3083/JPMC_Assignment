@@ -4,6 +4,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
+import models.Comment;
 import models.Post;
 import org.testng.Assert;
 import service.CommentService;
@@ -95,5 +96,50 @@ public class StepsDef {
     @Given("User hits endpoint to get comments")
     public void userHitsEndpointToGetComments() {
         commentServ = new CommentService();
+    }
+
+    @When("User sends request all comments for POST {string}")
+    public void userSendsRequestAllCommentsForPOST(String postID) {
+        resCmnt = commentServ.getAllCommentsForAGivePostID(postID);
+    }
+
+    @Then("A list of comments is returned")
+    public void aListOfCommentsIsReturned() {
+        Assert.assertEquals(resCmnt.getStatusCode(),200);
+        Comment[] allComments = resCmnt.getBody().as(Comment[].class);
+        for(Comment val:allComments){
+            System.out.println(val.toString());
+        }
+    }
+
+    @When("User queries to get comments for post with {string}")
+    public void userQueriesToGetCommentsForPostWith(String postId) {
+        resCmnt = commentServ.queryAllCommentsForAGivePostID(postId);
+    }
+
+    @Then("A list of comments is returned where the postID is {string}")
+    public void aListOfCommentsIsReturnedWhereThePostIDIs(String arg0) {
+        Assert.assertEquals(resCmnt.getStatusCode(),200);
+        Comment[] allComments = resCmnt.getBody().as(Comment[].class);
+        for(Comment val:allComments){
+            System.out.println(val.toString());
+        }
+    }
+
+    @When("User searches for all post submitted by user with userID {int}")
+    public void userSearchesForAllPostSubmittedByUserWithUserID(int val) {
+
+        res = postServ.queryAPostQueryParam(String.valueOf(val));
+
+    }
+
+
+    @Then("Validate that all the posts submitted by the user {int} is displayed")
+    public void validateThatAllThePostsSubmittedByTheUserIsDisplayed(int userID) {
+        Assert.assertEquals(res.getStatusCode(),200);
+        Post[] allPostForQueriedUser = res.getBody().as(Post[].class);
+        for(Post val:allPostForQueriedUser){
+            Assert.assertEquals(val.getUserId(),userID);
+        }
     }
 }
