@@ -4,7 +4,13 @@ import io.restassured.RestAssured;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import models.Post;
+
+/**
+ * @author Manish Kumar
+ * @Desc This is initialization code. To set up
+ * base URI.
+ * GENERICS was intended but not implemented.
+ * */
 
 public class Arrange<T> {
     T obj;

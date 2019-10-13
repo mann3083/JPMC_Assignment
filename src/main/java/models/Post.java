@@ -1,5 +1,10 @@
 package models;
-
+/**
+ * @author Manish Kumar
+ * @Desc Based on MVC (Model View Controller)every data entiy
+ * id backed by a MODAL class.This class corresponds to the POST
+ * modal.
+ * */
 public class Post {
     private int userId;
     private int id;

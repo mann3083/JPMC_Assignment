@@ -12,8 +12,10 @@ import org.testng.annotations.Test;
 import util.Arrange;
 
 /**
- * Unit test for simple App.
- */
+ * @author Manish Kumar
+ * @Desc This is for reference only.
+ * These will not be included in the actual testing.
+ * */
 public class AppTest 
 {
     Arrange testSetUp;

@@ -1,22 +1,41 @@
 package models;
 
+/**
+ * @author Manish Kumar
+ * @Desc Based on MVC (Model View Controller)every data entiy
+ * id backed by a MODAL class.This class corresponds to the Comment
+ * modal.
+ * */
+
+
 public class Comment {
-
+    /*
+    * The Modal class fields names should match that returned on the JSON response
+    * If the names are different the GSON
+    * */
     private int postId;
-    private int commentId;
-    private String nameofUser;
-    private String emailofUser;
-    private String commentBody;
+    private int id;
+    private String name;
+    private String email;
 
-
-    public Comment(int postId, int commentId, String nameofUser, String emailofUser, String commentBody) {
-        this.postId = postId;
-        this.commentId = commentId;
-        this.nameofUser = nameofUser;
-        this.emailofUser = emailofUser;
-        this.commentBody = commentBody;
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "postId=" + postId +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", body='" + body + '\'' +
+                '}';
     }
 
+    public Comment(int postId, int id, String name, String email, String body) {
+        this.postId = postId;
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.body = body;
+    }
 
     public int getPostId() {
         return postId;
@@ -26,46 +45,39 @@ public class Comment {
         this.postId = postId;
     }
 
-    public int getCommentId() {
-        return commentId;
+    public int getId() {
+        return id;
     }
 
-    public void setCommentId(int commentId) {
-        this.commentId = commentId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getNameofUser() {
-        return nameofUser;
+    public String getName() {
+        return name;
     }
 
-    public void setNameofUser(String nameofUser) {
-        this.nameofUser = nameofUser;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getEmailofUser() {
-        return emailofUser;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailofUser(String emailofUser) {
-        this.emailofUser = emailofUser;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getCommentBody() {
-        return commentBody;
+    public String getBody() {
+        return body;
     }
 
-    public void setCommentBody(String commentBody) {
-        this.commentBody = commentBody;
+    public void setBody(String body) {
+        this.body = body;
     }
 
-    @Override
-    public String toString() {
-        return "Comment{" +
-                "postId=" + postId +
-                ", commentId=" + commentId +
-                ", nameofUser='" + nameofUser + '\'' +
-                ", emailofUser='" + emailofUser + '\'' +
-                ", commentBody='" + commentBody + '\'' +
-                '}';
-    }
+    private String body;
+
+
 }

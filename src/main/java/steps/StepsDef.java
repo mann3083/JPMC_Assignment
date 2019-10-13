@@ -10,8 +10,19 @@ import org.testng.Assert;
 import service.CommentService;
 import service.PostService;
 import service.UserService;
-
+/**
+ * @author Manish Kumar
+ * @Desc All the step are defined in this class.
+ *
+ * */
 public class StepsDef {
+    /**
+     * @author Manish Kumar
+     * @Desc Based on MVC (Model View Controller) this is the AUTOWIRING
+     * concept
+     * This initializes all values to be used in the step definition
+     * using the Business Layer or Modal class.
+     * */
     PostService postServ;
     UserService userServ;
     CommentService commentServ;
@@ -70,7 +81,10 @@ public class StepsDef {
 
         Post expectedPost = new Post(userId,title,body);
 
-        //Make assertions
+        /*
+        * The POST added should be same as sent in the request.
+        * The assertions are done to validate those.
+        * */
 
         Assert.assertEquals(res.statusCode(),201);
         Post actualPost = res.getBody().as(Post.class);
